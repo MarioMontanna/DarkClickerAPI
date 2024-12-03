@@ -3,34 +3,37 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Only in dev
 builder.WebHost.ConfigureKestrel(options =>
 {
-    options.ListenAnyIP(80);  // Escucha en el puerto 80
+    options.ListenAnyIP(80);  // Listening in port 80
 });
 
-// Agrega servicios al contenedor
+// Services added
 builder.Services.AddControllers();
 
-// Configuración de Swagger
+// Swagger config
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Configuración de la cadena de conexión
+// Configuration to conect
 string connectionString = builder.Configuration.GetConnectionString("SQLiteConnection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 
-// Configuración de autenticación y autorización
+// Configuration de Authentication y Authorization
 builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
 
-// Registrar el servicio de limpieza mensual
+// Do petition every 5 minutes to keep the server in use
+builder.Services.AddHostedService<HttpRequestService>();
+// Monthly database reset
 builder.Services.AddHostedService<MonthlyDatabaseCleanupService>();
 
 var app = builder.Build();
 
-// Habilita Swagger solo en desarrollo
+// Swagger only dev
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
