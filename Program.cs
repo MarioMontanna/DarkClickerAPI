@@ -29,7 +29,7 @@ builder.Services.AddAuthorization();
 // Do petition every 5 minutes to keep the server in use
 builder.Services.AddHostedService<HttpRequestService>();
 // Monthly database reset
-builder.Services.AddHostedService<MonthlyDatabaseCleanupService>();
+builder.Services.AddHostedService<MonthlyDatabaseCleanUpService>();
 
 var app = builder.Build();
 

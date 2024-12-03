@@ -1,37 +1,38 @@
 public class HttpRequestService : BackgroundService
 {
-    private readonly IServiceProvider _serviceProvider;
+     private readonly ILogger<HttpRequestService> _logger;
 
-    public HttpRequestService(IServiceProvider serviceProvider)
+    public HttpRequestService(ILogger<HttpRequestService> logger)
     {
-        _serviceProvider = serviceProvider;
+        _logger = logger;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        await Task.Delay(TimeSpan.FromMinutes(5), stoppingToken);
+        
         while (!stoppingToken.IsCancellationRequested)
         {
             try
             {
-                // Llamar al método del controlador directamente
-                using (var scope = _serviceProvider.CreateScope())
+                using (var httpClient = new HttpClient())
                 {
-                    // Obtener el controlador del servicio
-                    var controller = scope.ServiceProvider.GetRequiredService<ScoreController>();
-
-                    // Llamar al método del controlador (que simula la lógica del GET)
-                    var result = controller.TimeToResetDatabase();
-
-                    // Imprimir la respuesta del resultado
-                    Console.WriteLine($"Respuesta: {result}");
+                    var response = await httpClient.GetAsync("https://darkclickerapi.onrender.com/api/Score/time-to-reset", stoppingToken);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        _logger.LogInformation("Petición HTTP realizada con éxito.");
+                    }
+                    else
+                    {
+                        _logger.LogError($"Error en la petición HTTP: {response.StatusCode}");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al invocar el método: {ex.Message}");
+                _logger.LogError($"Error en el BackgroundService: {ex.Message}");
             }
-
-            // Esperar 15 minutos antes de realizar la siguiente llamada
+            
             await Task.Delay(TimeSpan.FromMinutes(5), stoppingToken);
         }
     }

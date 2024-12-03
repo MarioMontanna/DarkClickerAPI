@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\VT-Lab\\Desktop\\Projects\\DarkClicker\\DarkClicker.csproj": {}
+    "C:\\Users\\VT-Lab\\Documents\\GitHub\\DarkClickerAPI\\DarkClicker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\VT-Lab\\Desktop\\Projects\\DarkClicker\\DarkClicker.csproj": {
+    "C:\\Users\\VT-Lab\\Documents\\GitHub\\DarkClickerAPI\\DarkClicker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\VT-Lab\\Desktop\\Projects\\DarkClicker\\DarkClicker.csproj",
+        "projectUniqueName": "C:\\Users\\VT-Lab\\Documents\\GitHub\\DarkClickerAPI\\DarkClicker.csproj",
         "projectName": "DarkClicker",
-        "projectPath": "C:\\Users\\VT-Lab\\Desktop\\Projects\\DarkClicker\\DarkClicker.csproj",
+        "projectPath": "C:\\Users\\VT-Lab\\Documents\\GitHub\\DarkClickerAPI\\DarkClicker.csproj",
         "packagesPath": "C:\\Users\\VT-Lab\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\VT-Lab\\Desktop\\Projects\\DarkClicker\\obj\\",
+        "outputPath": "C:\\Users\\VT-Lab\\Documents\\GitHub\\DarkClickerAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\VT-Lab\\AppData\\Roaming\\NuGet\\NuGet.Config",

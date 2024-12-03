@@ -1,14 +1,8 @@
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-
-public class MonthlyDatabaseCleanupService : BackgroundService
+public class MonthlyDatabaseCleanUpService : BackgroundService
 {
     private readonly IServiceProvider _serviceProvider;
 
-    public MonthlyDatabaseCleanupService(IServiceProvider serviceProvider)
+    public MonthlyDatabaseCleanUpService(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
     }

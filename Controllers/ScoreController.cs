@@ -57,7 +57,7 @@ public class ScoreController: ControllerBase
     }
 
     [HttpGet("time-to-reset")]
-    public IActionResult TimeToResetDatabase()
+    public IActionResult GetTimeToResetDatabase()
     {
         try
         {
