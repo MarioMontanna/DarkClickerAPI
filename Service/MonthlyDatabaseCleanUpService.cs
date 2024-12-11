@@ -24,19 +24,19 @@ public class MonthlyDatabaseCleanUpService : BackgroundService
                         context.MaxScores.RemoveRange(context.MaxScores);
                         await context.SaveChangesAsync();
 
-                        Console.WriteLine($"Base de datos vaciada correctamente a las {now}");
+                        Console.WriteLine($"Date Base cleaned correctly at {now}");
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"Error al vaciar la base de datos: {ex.Message}");
+                        Console.WriteLine($"Error cleaning database: {ex.Message}");
                     }
                 }
 
-                // Espera un minuto para evitar ejecuciones repetidas en la misma hora
+                // wait a minute before checking the time again
                 await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
             }
 
-            // Espera un minuto antes de comprobar la hora de nuevo
+            // wait a minute before checking the time again
             await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
         }
     }

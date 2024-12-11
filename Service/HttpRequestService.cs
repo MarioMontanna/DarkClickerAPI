@@ -20,17 +20,17 @@ public class HttpRequestService : BackgroundService
                     var response = await httpClient.GetAsync("https://darkclickerapi.onrender.com/api/Score/time-to-reset", stoppingToken);
                     if (response.IsSuccessStatusCode)
                     {
-                        _logger.LogInformation("Petición HTTP realizada con éxito.");
+                        _logger.LogInformation("Petición HTTP works.");
                     }
                     else
                     {
-                        _logger.LogError($"Error en la petición HTTP: {response.StatusCode}");
+                        _logger.LogError($"Error in HTTP petition: {response.StatusCode}");
                     }
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error en el BackgroundService: {ex.Message}");
+                _logger.LogError($"Error in the BackgroundService: {ex.Message}");
             }
             
             await Task.Delay(TimeSpan.FromMinutes(5), stoppingToken);

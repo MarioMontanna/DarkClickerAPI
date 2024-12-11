@@ -14,7 +14,7 @@ public class ScoreController: ControllerBase
         _context = context;
         _configuration = configuration;
     }
-    // Endpoint para registrar nuevos scores
+    // Endpoint to create a new score
     [HttpPost]
     public async Task<IActionResult> CreateNewScore([FromBody] Score newScore)
     {
@@ -63,10 +63,10 @@ public class ScoreController: ControllerBase
         {
             var now = DateTime.Now;
 
-            // Calcular el primer día del próximo mes
+            // calculate the next reset time
             var nextReset = new DateTime(now.Year, now.Month, 1).AddMonths(1);
 
-            // Calcular la diferencia de tiempo
+            // Calculate the time remaining until the next reset
             var timeRemaining = nextReset - now;
 
             return Ok(new

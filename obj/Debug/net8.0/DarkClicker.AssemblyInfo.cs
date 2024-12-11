@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DarkClicker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+292216d45b074f01edcee97580064a2345cf0bf2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+144290016be0cd81ea3c89fee8d6b27a2e6093f8")]
 [assembly: System.Reflection.AssemblyProductAttribute("DarkClicker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DarkClicker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
